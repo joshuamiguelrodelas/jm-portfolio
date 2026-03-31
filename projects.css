@@ -1,0 +1,93 @@
+/* Projects gallery standalone styles */
+
+:root {
+  --bg: #181818;
+  --fg: #fff;
+  --accent: #fff;
+  --btn-size: 60px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.projects-gallery {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.projects-gallery-inner {
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-frame {
+  width: 100%;
+  aspect-ratio: 1920 / 911;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.45);
+}
+
+.projects-back-floating {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.projects-back-floating:hover,
+.projects-back-floating:focus-visible {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  body.projects-gallery { padding: 1.5rem 1rem; }
+  .projects-gallery-inner { gap: 1rem; }
+  .project-frame { border-radius: 10px; }
+  .projects-back-floating {
+    top: 16px;
+    left: 16px;
+    --btn-size: 52px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body.projects-gallery { padding: 1.25rem 0.85rem; }
+  .projects-gallery-inner { gap: 0.85rem; }
+  .project-frame { border-radius: 9px; box-shadow: 0 12px 24px rgba(0,0,0,0.38); }
+  .projects-back-floating { top: 14px; left: 14px; --btn-size: 48px; font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  body.projects-gallery { padding: 1rem 0.75rem; }
+  .projects-gallery-inner { gap: 0.75rem; }
+  .project-frame { border-radius: 8px; }
+  .projects-back-floating { top: 12px; left: 12px; --btn-size: 46px; font-size: 0.9rem; }
+}
